@@ -50,13 +50,13 @@ There is
     ```
 
    You should see a confirmation in your terminal like this:
-    ```zsh
-    Current Network: goerli
-   { nonce: 78 }
-   Nft deployed to: 0x7bA6a9c3FCC234B97fE9927ce2C8c1026780a34a with network:goerli
-   Write to .env CONTRACT_ADDRESS success
 
-    ```
+```
+Current Network: goerli
+{ nonce: 78 }
+Nft deployed to: 0x7bA6a9c3FCC234B97fE9927ce2C8c1026780a34a with network:goerli
+Write to .env CONTRACT_ADDRESS success
+```
 
 Check out your newly deployed contract on etherscan.
 
