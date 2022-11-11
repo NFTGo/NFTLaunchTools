@@ -1,4 +1,4 @@
-##Prepare Your metadata before deploy
+## Prepare Your metadata before deploy
 You need to prepare the NFT metadata before you deploy the contract.
 There is
 1. Upload you .jpg directory to ipfs
