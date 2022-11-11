@@ -1,5 +1,14 @@
 ##Prepare Your metadata before deploy
-upload you jpg directory to ipfs
+You need to prepare the NFT metadata before you deploy the contract.
+There is
+1. Upload you .jpg directory to ipfs
+2. Generate the metadata .json file by yourself or use the tool we prepared
+   ```
+       "generateMetadata": "yarn hardhat run scripts/metadata.ts",
+   ```
+3. Upload you .json directory to ipfs, get the CONTRACT_BASE_URI
+4. Upload you collection.json file to ipfs, get the CONTRACT_COLLECTION_URI
+
 
 
 ## Prepare Deploy
