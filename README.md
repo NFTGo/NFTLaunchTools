@@ -2,8 +2,7 @@
 upload you jpg directory to ipfs
 
 
-
-## Steps to Deploy
+## Prepare Deploy
 1. Make a copy of `.env.example` to `.env` and fill it out
 
    You should fill out at least the following fields:
@@ -22,7 +21,7 @@ upload you jpg directory to ipfs
     CONTRACT_PUBLIC_MINT_AMOUNT=NFT publicmint amount    eg: 1000
     CONTRACT_PUBLIC_SALE_PRICE=NFT publicmint price     eg: 0.0001
     CONTRACT_MINT_LIMIT_PER_WALLET= Maximum number of NFTs could mint per wallet   eg: 10
-   
+    CONTRACT_DESCRIPTION=Your NFT description 
     CONTRACT_ADDRESS = It will be automatically filled  after you deploy your smart contract!
     CONTRACT_WHITELIST_ROOT = It will be automatically filled  after generate the whiteListMerkleTree
     
@@ -32,7 +31,18 @@ upload you jpg directory to ipfs
     yarn && yarn compile
     ```
 
-3. Deploy the contract
+## Prepare Your metadata before deploy
+You need to prepare the NFT metadata before you deploy the contract.
+There is
+1. Upload you .jpg directory to ipfs
+2. Generate the metadata .json file by yourself or use the tool we prepared
+   ```
+       "generateMetadata": "yarn generateMetadata",
+   ```
+3. Upload you .json directory to ipfs, get the CONTRACT_BASE_URI
+4. Upload you collection.json file to ipfs, get the CONTRACT_COLLECTION_URI
+
+## Deploy the contract
 
    --network choose the network you want to deploy
     ```
@@ -50,8 +60,7 @@ upload you jpg directory to ipfs
 
 Check out your newly deployed contract on etherscan.
 
-
-
+ 
 
 ## Verify Your Contract on Etherscan
 
@@ -60,8 +69,10 @@ Run the following command with your `DEPLOYED_CONTRACT_ADDRESS`, the network whe
 yarn verify <Your Contract Address>
 ```
 
-## Generate and set MerkelTree root 
+## Generate and set MerkelTree root
+Write the whitelist in the whitelist.json file
 
+then run the follow command:
 ```
 "generate Your WhitelistMerkleRoot": "yarn generateWhitelistMerkleRoot",
 "set WhitelistMerkleRoot onchain": "yarn setWhitelistMerkleRoot",
@@ -92,6 +103,7 @@ yarn verify <Your Contract Address>
 ## Generate Metadata
 1. modify `scripts/metadata.ts` line 27
 2. `yarn generateMetadata`
+3. upload `metadata/generated` to ipfs
 
 ## NOTICE
 `default network: goerli`

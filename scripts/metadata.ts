@@ -24,7 +24,7 @@ async function generateMetadata() {
     const json = {
       name: name + " #" + i,
       image: baseUri + "/" + i + ".jpg",
-      description: "Write Your Description About NFT",
+      description: process.env.CONTRACT_DESCRIPTION!,
       attributes: [],
     };
 
