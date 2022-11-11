@@ -89,7 +89,9 @@ yarn verify <Your Contract Address>
     
 ```
 
-
+## Generate Metadata
+1. modify `scripts/metadata.ts` line 27
+2. `yarn generateMetadata`
 
 ## NOTICE
 `default network: goerli`
