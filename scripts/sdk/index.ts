@@ -20,8 +20,6 @@ export type { OperatorFilterer } from "./OperatorFilterer";
 export type { OperatorFilterRegistry } from "./OperatorFilterRegistry";
 export type { OperatorFilterRegistryErrorsAndEvents } from "./OperatorFilterRegistryErrorsAndEvents";
 export type { OwnedRegistrant } from "./OwnedRegistrant";
-export type { ERC721A } from "./ERC721A";
-export type { Test } from "./Test";
 
 export { Ownable__factory } from "./factories/Ownable__factory";
 export { Ownable2Step__factory } from "./factories/Ownable2Step__factory";
@@ -42,5 +40,3 @@ export { OperatorFilterer__factory } from "./factories/OperatorFilterer__factory
 export { OperatorFilterRegistry__factory } from "./factories/OperatorFilterRegistry__factory";
 export { OperatorFilterRegistryErrorsAndEvents__factory } from "./factories/OperatorFilterRegistryErrorsAndEvents__factory";
 export { OwnedRegistrant__factory } from "./factories/OwnedRegistrant__factory";
-export { ERC721A__factory } from "./factories/ERC721A__factory";
-export { Test__factory } from "./factories/Test__factory";

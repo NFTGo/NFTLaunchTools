@@ -7,7 +7,7 @@ async function main() {
   console.log(`Current Network: ${network.name}`);
 
   // We get the contract to deploy
-  const Nft = await ethers.getContractFactory("NFT");
+  const Nft = await ethers.getContractFactory("NFTs");
 
   // We get the args to deploy
   const [

@@ -39,6 +39,7 @@ interface IOperatorFilterRegistryInterface extends ethers.utils.Interface {
     "subscriberAt(address,uint256)": FunctionFragment;
     "subscribers(address)": FunctionFragment;
     "subscriptionOf(address)": FunctionFragment;
+    "unregister(address)": FunctionFragment;
     "unsubscribe(address,bool)": FunctionFragment;
     "updateCodeHash(address,bytes32,bool)": FunctionFragment;
     "updateCodeHashes(address,bytes32[],bool)": FunctionFragment;
@@ -64,6 +65,7 @@ interface IOperatorFilterRegistryInterface extends ethers.utils.Interface {
   encodeFunctionData(functionFragment: "subscriberAt", values: [string, BigNumberish]): string;
   encodeFunctionData(functionFragment: "subscribers", values: [string]): string;
   encodeFunctionData(functionFragment: "subscriptionOf", values: [string]): string;
+  encodeFunctionData(functionFragment: "unregister", values: [string]): string;
   encodeFunctionData(functionFragment: "unsubscribe", values: [string, boolean]): string;
   encodeFunctionData(functionFragment: "updateCodeHash", values: [string, BytesLike, boolean]): string;
   encodeFunctionData(functionFragment: "updateCodeHashes", values: [string, BytesLike[], boolean]): string;
@@ -88,6 +90,7 @@ interface IOperatorFilterRegistryInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "subscriberAt", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "subscribers", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "subscriptionOf", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "unregister", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "unsubscribe", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "updateCodeHash", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "updateCodeHashes", data: BytesLike): Result;
@@ -235,6 +238,8 @@ export class IOperatorFilterRegistry extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    unregister(addr: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+
     unsubscribe(
       registrant: string,
       copyExistingEntries: boolean,
@@ -361,6 +366,8 @@ export class IOperatorFilterRegistry extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  unregister(addr: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<ContractTransaction>;
+
   unsubscribe(
     registrant: string,
     copyExistingEntries: boolean,
@@ -431,6 +438,8 @@ export class IOperatorFilterRegistry extends BaseContract {
     subscribers(registrant: string, overrides?: CallOverrides): Promise<string[]>;
 
     subscriptionOf(addr: string, overrides?: CallOverrides): Promise<string>;
+
+    unregister(addr: string, overrides?: CallOverrides): Promise<void>;
 
     unsubscribe(registrant: string, copyExistingEntries: boolean, overrides?: CallOverrides): Promise<void>;
 
@@ -536,6 +545,8 @@ export class IOperatorFilterRegistry extends BaseContract {
     subscribers(registrant: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     subscriptionOf(addr: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
+
+    unregister(addr: string, overrides?: Overrides & { from?: string | Promise<string> }): Promise<BigNumber>;
 
     unsubscribe(
       registrant: string,
@@ -666,6 +677,11 @@ export class IOperatorFilterRegistry extends BaseContract {
     ): Promise<PopulatedTransaction>;
 
     subscriptionOf(
+      addr: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    unregister(
       addr: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;

@@ -58,7 +58,7 @@ There is
 ## Deploy the contract
 
 --network choose the network you want to deploy
-` yarn deploy --network goerli `
+`yarn deploy --network goerli`
 
 You should see a confirmation in your terminal like this:
 
