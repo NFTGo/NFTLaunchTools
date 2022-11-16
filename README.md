@@ -1,6 +1,8 @@
 ## Prepare Your metadata before deploy
+
 You need to prepare the NFT metadata before you deploy the contract.
 There is
+
 1. Upload you .jpg directory to ipfs
 2. Generate the metadata .json file by yourself or use the tool we prepared
    ```
@@ -9,40 +11,42 @@ There is
 3. Upload you .json directory to ipfs, get the CONTRACT_BASE_URI
 4. Upload you collection.json file to ipfs, get the CONTRACT_COLLECTION_URI
 
-
-
 ## Prepare Deploy
+
 1. Make a copy of `.env.example` to `.env` and fill it out
 
    You should fill out at least the following fields:
 
-    ```
-    GOERLI_API_URL,MAINNET_API_URL= your node rpc
-    ETHERSCAN_API_KEY= Regist on https=//etherscan.io/login
-    PRIVATE_KEY and PUBLIC_KEY= Your Wallet Information
+   ```
+   GOERLI_API_URL,MAINNET_API_URL= your node rpc
+   ETHERSCAN_API_KEY= Regist on https=//etherscan.io/login
+   PRIVATE_KEY and PUBLIC_KEY= Your Wallet Information
 
-    CONTRACT_NAME=Your NFT name 
-    CONTRACT_SYMBOL=Your NFT symbol
-    CONTRACT_BASE_URI=ipfs://<Your NFT information directory cid>/   eg:QmbqKVoqVq9t4SA2b2F2WYStyB6VyjqfFxaaHyRwXvnQN8
-    CONTRACT_COLLECTION_URI=ipfs=//<Your NFT collection information directory cid>/  eg:QmbqKVoqVq9t4SA2b2F2WYStyB6VyjqfFxaaHyRwXvnQN8
-    CONTRACT_WHITELIST_MINT_AMOUNT=NFT whiteList amount  eg:10
-    CONTRACT_WHITELIST_SALE_PRICE=NFT whiteList price  eg:0.0001
-    CONTRACT_PUBLIC_MINT_AMOUNT=NFT publicmint amount    eg: 1000
-    CONTRACT_PUBLIC_SALE_PRICE=NFT publicmint price     eg: 0.0001
-    CONTRACT_MINT_LIMIT_PER_WALLET= Maximum number of NFTs could mint per wallet   eg: 10
-    CONTRACT_DESCRIPTION=Your NFT description 
-    CONTRACT_ADDRESS = It will be automatically filled  after you deploy your smart contract!
-    CONTRACT_WHITELIST_ROOT = It will be automatically filled  after generate the whiteListMerkleTree
-    
-    ```
+   CONTRACT_NAME=Your NFT name
+   CONTRACT_SYMBOL=Your NFT symbol
+   CONTRACT_BASE_URI=ipfs://<Your NFT information directory cid>/   eg:QmbqKVoqVq9t4SA2b2F2WYStyB6VyjqfFxaaHyRwXvnQN8
+   CONTRACT_COLLECTION_URI=ipfs=//<Your NFT collection information directory cid>/  eg:QmbqKVoqVq9t4SA2b2F2WYStyB6VyjqfFxaaHyRwXvnQN8
+   CONTRACT_WHITELIST_MINT_AMOUNT=NFT whiteList amount  eg:10
+   CONTRACT_WHITELIST_SALE_PRICE=NFT whiteList price  eg:0.0001
+   CONTRACT_PUBLIC_MINT_AMOUNT=NFT publicmint amount    eg: 1000
+   CONTRACT_PUBLIC_SALE_PRICE=NFT publicmint price     eg: 0.0001
+   CONTRACT_MINT_LIMIT_PER_WALLET= Maximum number of NFTs could mint per wallet   eg: 10
+   CONTRACT_DESCRIPTION=Your NFT description
+   CONTRACT_ADDRESS = It will be automatically filled  after you deploy your smart contract!
+   CONTRACT_WHITELIST_ROOT = It will be automatically filled  after generate the whiteListMerkleTree
+
+   ```
+
 2. Compile the contract
-    ```
-    yarn && yarn compile
-    ```
+   ```
+   yarn && yarn compile
+   ```
 
 ## Prepare Your metadata before deploy
+
 You need to prepare the NFT metadata before you deploy the contract.
 There is
+
 1. Upload you .jpg directory to ipfs
 2. Generate the metadata .json file by yourself or use the tool we prepared
    ```
@@ -53,12 +57,10 @@ There is
 
 ## Deploy the contract
 
-   --network choose the network you want to deploy
-    ```
-    yarn deploy --network goerli
-    ```
+--network choose the network you want to deploy
+` yarn deploy --network goerli `
 
-   You should see a confirmation in your terminal like this:
+You should see a confirmation in your terminal like this:
 
 ```
 Current Network: goerli
@@ -69,24 +71,24 @@ Write to .env CONTRACT_ADDRESS success
 
 Check out your newly deployed contract on etherscan.
 
- 
-
 ## Verify Your Contract on Etherscan
 
 Run the following command with your `DEPLOYED_CONTRACT_ADDRESS`, the network where it's deployed.
+
 ```
 yarn verify <Your Contract Address>
 ```
 
 ## Generate and set MerkelTree root
+
 Write the whitelist in the whitelist.json file
 
 then run the follow command:
+
 ```
 "generate Your WhitelistMerkleRoot": "yarn generateWhitelistMerkleRoot",
 "set WhitelistMerkleRoot onchain": "yarn setWhitelistMerkleRoot",
 ```
-
 
 ## Set Your Contract Configs
 
@@ -94,32 +96,28 @@ then run the follow command:
 
     "reset contract BaseURI onchain": "yarn setBaseURI",
     "reset CollectionURI onchain": "yarn setCollectionURI",
-    
+
     "set Sale Active": "yarn setSaleActive",
     "set Sale Inactive": "yarn setSaleInactive",
 
 ```
 
-## Test Your NFT mint function 
+## Test Your NFT mint function
 
 ```
     "mint a NFT by publicMint with one nft": "yarn publicMint",
-    
+
     "mint a NFT by whiteListMint onchain with one nft(need set WhitelistMerkleRoot first)": "yarn whiteListMint",
-    
+
 ```
 
 ## Generate Metadata
+
 1. modify `scripts/metadata.ts` line 27
 2. `yarn generateMetadata`
 3. upload `metadata/generated` to ipfs
 
 ## NOTICE
+
 `default network: goerli`
 Always remember to choose the right network by --network (mainnet or goerli) when you run the command
-
-
-
-
-
-

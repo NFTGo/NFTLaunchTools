@@ -4,7 +4,8 @@
   "scripts": {
     "clean": "hardhat clean",
     "compile": "yarn clean && yarn hardhat compile && yarn format",
-    "format": "prettier --write '**/*.{js,jsx,ts,tsx,sol,json}'",
+    "format": "prettier --write .",
+    "format1": "prettier --write '**/*.{js,jsx,ts,tsx,sol,json}'",
     "deploy": "yarn hardhat run scripts/deploy.ts",
     "publicMint": "yarn hardhat run scripts/publicMint.ts",
     "whiteListMint": "yarn hardhat run scripts/whiteListMint.ts",

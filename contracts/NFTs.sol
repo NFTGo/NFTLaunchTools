@@ -14,8 +14,9 @@ import "@openzeppelin/contracts/token/common/ERC2981.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
+import "./OperatorFilter/OperatorFilterer.sol";
 
-contract NFT is ERC721URIStorage, ERC2981, Ownable, ReentrancyGuard {
+contract NFT is ERC721URIStorage, ERC2981, OperatorFilterer, Ownable, ReentrancyGuard {
     string private _collectionURI;
     string public baseURI;
     using Counters for Counters.Counter;
@@ -57,7 +58,7 @@ contract NFT is ERC721URIStorage, ERC2981, Ownable, ReentrancyGuard {
         uint256 _PUBLIC_SALE_PRICE,
         uint256 _MINT_LIMIT_PER_WALLET,
         uint256 _royalty
-    ) ERC721(name_, symbol_) {
+    ) ERC721(name_, symbol_) OperatorFilterer(0x3cc6CddA760b79bAfa08dF41ECFA224f810dCeB6, true) {
         require(_royalty <= 9000, "royalty must less than 9000");
         require(_royalty >= 100, "royalty must more than 100");
 
@@ -210,6 +211,23 @@ contract NFT is ERC721URIStorage, ERC2981, Ownable, ReentrancyGuard {
     }
 
     /** ROYALTIES **/
+
+    function transferFrom(address from, address to, uint256 tokenId) public override onlyAllowedOperator(from) {
+        super.transferFrom(from, to, tokenId);
+    }
+
+    function safeTransferFrom(address from, address to, uint256 tokenId) public override onlyAllowedOperator(from) {
+        super.safeTransferFrom(from, to, tokenId);
+    }
+
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId,
+        bytes memory data
+    ) public override onlyAllowedOperator(from) {
+        super.safeTransferFrom(from, to, tokenId, data);
+    }
 
     function royaltyInfo(
         uint256,

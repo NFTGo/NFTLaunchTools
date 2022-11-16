@@ -2,7 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export type { Ownable } from "./Ownable";
+export type { Ownable2Step } from "./Ownable2Step";
 export type { IERC2981 } from "./IERC2981";
+export type { ERC2981 } from "./ERC2981";
 export type { IERC20 } from "./IERC20";
 export type { ERC721 } from "./ERC721";
 export type { ERC721URIStorage } from "./ERC721URIStorage";
@@ -12,9 +14,19 @@ export type { IERC721Receiver } from "./IERC721Receiver";
 export type { ERC165 } from "./ERC165";
 export type { IERC165 } from "./IERC165";
 export type { NFT } from "./NFT";
+export type { DefaultOperatorFilterer } from "./DefaultOperatorFilterer";
+export type { IOperatorFilterRegistry } from "./IOperatorFilterRegistry";
+export type { OperatorFilterer } from "./OperatorFilterer";
+export type { OperatorFilterRegistry } from "./OperatorFilterRegistry";
+export type { OperatorFilterRegistryErrorsAndEvents } from "./OperatorFilterRegistryErrorsAndEvents";
+export type { OwnedRegistrant } from "./OwnedRegistrant";
+export type { ERC721A } from "./ERC721A";
+export type { Test } from "./Test";
 
 export { Ownable__factory } from "./factories/Ownable__factory";
+export { Ownable2Step__factory } from "./factories/Ownable2Step__factory";
 export { IERC2981__factory } from "./factories/IERC2981__factory";
+export { ERC2981__factory } from "./factories/ERC2981__factory";
 export { IERC20__factory } from "./factories/IERC20__factory";
 export { ERC721__factory } from "./factories/ERC721__factory";
 export { ERC721URIStorage__factory } from "./factories/ERC721URIStorage__factory";
@@ -24,3 +36,11 @@ export { IERC721Receiver__factory } from "./factories/IERC721Receiver__factory";
 export { ERC165__factory } from "./factories/ERC165__factory";
 export { IERC165__factory } from "./factories/IERC165__factory";
 export { NFT__factory } from "./factories/NFT__factory";
+export { DefaultOperatorFilterer__factory } from "./factories/DefaultOperatorFilterer__factory";
+export { IOperatorFilterRegistry__factory } from "./factories/IOperatorFilterRegistry__factory";
+export { OperatorFilterer__factory } from "./factories/OperatorFilterer__factory";
+export { OperatorFilterRegistry__factory } from "./factories/OperatorFilterRegistry__factory";
+export { OperatorFilterRegistryErrorsAndEvents__factory } from "./factories/OperatorFilterRegistryErrorsAndEvents__factory";
+export { OwnedRegistrant__factory } from "./factories/OwnedRegistrant__factory";
+export { ERC721A__factory } from "./factories/ERC721A__factory";
+export { Test__factory } from "./factories/Test__factory";
