@@ -36,7 +36,7 @@ const publicSalePrice = ethers.utils.parseEther(CONTRACT_PUBLIC_SALE_PRICE);
 const mintLimitPerWallet = BigNumber.from(CONTRACT_MINT_LIMIT_PER_WALLET);
 const royalty = BigNumber.from(CONTRACT_ROYALTY);
 
-if (!(royalty >= 100 && royalty <= 9000)) {
+if (!(royalty >= 10 && royalty <= 9000)) {
   console.info("Invalid CONTRACT_ROYALTY in .env !!!");
   process.exit(-1);
 }

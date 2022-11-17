@@ -14,7 +14,7 @@ async function generateMetadata() {
     royalty,
   ] = require("./args.js");
 
-  let path = __dirname + "/../metadata/generated/";
+  const path = __dirname + "/../metadata/generated/";
   console.log(path);
   if (!fs.existsSync(path)) {
     await fs.mkdirSync(path);
@@ -23,7 +23,7 @@ async function generateMetadata() {
   for (let i = 1; i <= total; i++) {
     const json = {
       name: name + " #" + i,
-      image: baseUri + "/" + i + ".jpg",
+      image: process.env.CONTRACT_PICTUREURI + "/" + i + ".jpg",
       description: process.env.CONTRACT_DESCRIPTION!,
       attributes: [],
     };
