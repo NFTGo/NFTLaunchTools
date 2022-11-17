@@ -16,7 +16,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import "./OperatorFilter/OperatorFilterer.sol";
 
-contract NFT is ERC721URIStorage, ERC2981, OperatorFilterer, Ownable, ReentrancyGuard {
+contract NFTs is ERC721URIStorage, ERC2981, OperatorFilterer, Ownable, ReentrancyGuard {
     string private _collectionURI;
     string public baseURI;
     using Counters for Counters.Counter;

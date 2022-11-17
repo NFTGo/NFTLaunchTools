@@ -40,7 +40,7 @@ const config: HardhatUserConfig = {
     goerli: {
       url: process.env.GOERLI_API_URL!,
       accounts: [process.env.PRIVATE_KEY!],
-      gasPrice: 2000000000,
+      //gasPrice: 2000000000,
     },
     mainnet: {
       url: process.env.MAINNET_API_URL!,

@@ -31,7 +31,6 @@ async function main() {
   console.log(`Generated WhiteListMerkleTree Root: ${whitelistRootHash}`);
 
   console.log(`Write to scripts/whiteListMerkeTree.json success`);
-
   // Write back to .env CONTRACT_WHITELIST_ROOT
   writeEnv("CONTRACT_WHITELIST_ROOT", whitelistRootHash);
 }
